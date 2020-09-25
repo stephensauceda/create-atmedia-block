@@ -5,4 +5,4 @@ const { spawnSync } = require("child_process");
 
 spawnSync("create-guten-block", [blockName]);
 
-console.log('All done!';
+console.log('All done!');
