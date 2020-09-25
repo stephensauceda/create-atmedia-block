@@ -8,7 +8,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "create-guten-block": "^1.14.1",
-    "rimraf": "^3.0.2"
+    "create-guten-block": "^1.14.1"
   }
 }
