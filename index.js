@@ -1,24 +1,23 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 const blockName = process.argv[2];
+const { promisify } = require("util");
 const { spawnSync } = require("child_process");
-const { unlinkSync } = require("fs");
+const fs = require("fs");
+const unlink = promisify(fs.unlink);
 
 const filesToRemove = [".editorconfig", ".eslintignore", ".eslintrc.json"];
 
 function removeFile(file) {
-  try {
-    unlinkSync(`${process.cwd()}/${blockName}/${file}`);
-    console.log(`Removed unused filed: ${file}`);
-  } catch (err) {
-    console.error(err);
-  }
+  return unlink(`${process.cwd()}/${blockName}/${file}`)
+    .then(() => console.log(`Removed unused filed: ${file}`))
+    .catch(console.error);
 }
 
 console.log(`Creating ${blockName}...`);
 
 spawnSync("npx", ["create-guten-block", blockName], { stdio: "inherit" });
 
-filesToRemove.forEach(removeFile);
-
-console.log("All done!");
+Promise.all(filesToRemove.map(removeFile)).then(() => {
+  console.log("All done!");
+});
