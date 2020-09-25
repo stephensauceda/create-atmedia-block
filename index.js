@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-const blockName = process.argv[2];
+const fs = require("fs");
 const { promisify } = require("util");
 const { spawnSync } = require("child_process");
-const fs = require("fs");
 const unlink = promisify(fs.unlink);
-
+const blockName = process.argv[2];
 const filesToRemove = [".editorconfig", ".eslintignore", ".eslintrc.json"];
 
 function removeFile(file) {
