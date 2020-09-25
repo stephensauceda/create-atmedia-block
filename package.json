@@ -7,7 +7,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "create-guten-block": "^1.14.1"
-  }
+  "dependencies": {}
 }
