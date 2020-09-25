@@ -1,0 +1,14 @@
+{
+  "name": "atmedia-create-guten-block",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "./index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "create-guten-block": "^1.14.1",
+    "rimraf": "^3.0.2"
+  }
+}
