@@ -14,18 +14,16 @@ const printEnd = require('./printEnd')
 const spinner = ora({ text: '' })
 const blockName = process.argv[2]
 
-if (!blockName) {
-  spinner.fail(`You must provide a block name.`)
+function exitWithError(error) {
+  spinner.fail(error.message)
   process.exit(1)
+}
+
+if (!blockName) {
+  exitWithError(new Error('You must provide a block name.'))
 }
 
 const blockDir = join(process.cwd(), blockName)
-
-function exitWithError(error) {
-  spinner.fail()
-  console.error(error.message)
-  process.exit(1)
-}
 
 module.exports = async function run() {
   printStart(blockName, blockDir)
