@@ -11,7 +11,7 @@ module.exports = function printEnd(blockName) {
   console.log(chalk.bgBlackBright('Commands:'))
   console.log(
     `${chalk.green('npm')} ${chalk.white('start')} - ${chalk.dim(
-      'Run Webpack in dev mode with live re-loading'
+      'Run Webpack in dev mode with live re-compiling'
     )}`
   )
   console.log(
