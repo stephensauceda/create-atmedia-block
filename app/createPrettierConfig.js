@@ -1,25 +1,14 @@
-const fs = require('fs')
-const { promisify } = require('util')
-const shell = require('shelljs')
-const writeFile = promisify(fs.writeFile)
+const { join } = require('path')
+const cpy = require('cpy')
+
+const prettierConfigFile = join(__dirname, '..', 'templates', '_prettierrc.js')
+const copyOptions = {
+  rename: '.prettierrc.js'
+}
 
 module.exports = function createPrettierConfig(blockDir, errorCallback) {
-  const prettierConfig = {
-    singleQuote: true,
-    trailingComma: 'none'
-  }
-
-  const ignoreConfig = ['package.json', 'dist/**/**.js']
-
   return new Promise(async resolve => {
-    shell.cd(blockDir)
-    await writeFile(
-      '.prettierrc.json',
-      JSON.stringify(prettierConfig, null, 2)
-    ).catch(errorCallback)
-    await writeFile('.prettierignore', ignoreConfig.join('\n')).catch(
-      errorCallback
-    )
+    await cpy(prettierConfigFile, blockDir, copyOptions).catch(errorCallback)
     resolve(true)
   })
 }
