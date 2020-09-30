@@ -26,7 +26,7 @@ if (!blockName) {
 const blockDir = join(process.cwd(), blockName)
 
 module.exports = async function run() {
-  // printStart(blockName, blockDir)
+  printStart(blockName, blockDir)
 
   spinner.start(
     `Initializing ${chalk.bold(
