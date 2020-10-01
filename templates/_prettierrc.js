@@ -1,4 +1,1 @@
-module.exports = {
-  singleQuote: true,
-  trailingComma: 'none'
-}
+module.exports = 'atmedia-prettier-config'
