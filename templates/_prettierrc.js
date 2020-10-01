@@ -1,1 +1,1 @@
-module.exports = 'atmedia-prettier-config'
+module.exports = 'atmedia-prettier-config';

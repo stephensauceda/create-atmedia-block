@@ -1,6 +1,8 @@
 module.exports = {
-  extends: '@stephensauceda',
+  extends: 'atmedia',
   rules: {
-    'no-async-promise-executor': 0
+    'no-async-promise-executor': 0,
+    'global-require': 0,
+    'no-console': 0
   }
-}
+};

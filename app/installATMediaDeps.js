@@ -1,5 +1,5 @@
-const execa = require('execa')
-const shell = require('shelljs')
+const execa = require('execa');
+const shell = require('shelljs');
 
 module.exports = function installATMediaDeps(blockDir, errorCallback) {
   const deps = [
@@ -13,14 +13,14 @@ module.exports = function installATMediaDeps(blockDir, errorCallback) {
     'prettier',
     'eslint-config-atmedia',
     'atmedia-prettier-config'
-  ]
+  ];
 
-  shell.cd(blockDir)
+  shell.cd(blockDir);
 
   return new Promise(async resolve => {
     await execa('npm', ['install', '--save-dev', ...deps, '--silent']).catch(
       errorCallback
-    )
-    resolve(true)
-  })
-}
+    );
+    resolve(true);
+  });
+};

@@ -1,9 +1,9 @@
-const execa = require('execa')
-const shell = require('shelljs')
+const execa = require('execa');
+const shell = require('shelljs');
 
 module.exports = function runLinting(blockDir, errorCallback) {
   return new Promise(async resolve => {
-    shell.cd(blockDir)
+    shell.cd(blockDir);
     await execa('npx', [
       'eslint',
       '--quiet',
@@ -11,7 +11,7 @@ module.exports = function runLinting(blockDir, errorCallback) {
       '--rule',
       'react/prop-types: 0',
       'src/**/**.js'
-    ]).catch(errorCallback)
-    resolve(true)
-  })
-}
+    ]).catch(errorCallback);
+    resolve(true);
+  });
+};

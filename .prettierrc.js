@@ -1,6 +1,1 @@
-module.exports = {
-  singleQuote: true,
-  semi: false,
-  arrowParens: 'avoid',
-  trailingComma: 'none'
-}
+module.exports = 'atmedia-prettier-config';
